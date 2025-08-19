@@ -31,10 +31,6 @@ export const getFavourites = async (req, res) => {
       .from(favoritesTable)
       .where(eq(favoritesTable.userId, userId));
 
-    if (userFavs.length === 0) {
-      return res.status(404).json({ message: "NO FAVOURITE RECIPES HERE" });
-    }
-
     res.status(200).json(userFavs);
   } catch (error) {
     console.error("ERROR in getFavourites", error);
